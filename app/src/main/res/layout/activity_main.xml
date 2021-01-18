@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_h264player"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="#33ff0000"
+        android:text="H264Player" />
+
+    <TextView
+        android:id="@+id/tv_h264encoder"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="#3300ff00"
+        android:text="H264Encoder" />
+
+    <TextView
+        android:id="@+id/tv_h264parser"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="#33ff0000"
+        android:text="H264Parser" />
+
+    <TextView
+        android:id="@+id/tv_camera1_capture"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="#3300ff00"
+        android:text="Camera1 Capture" />
+
+    <TextView
+        android:id="@+id/tv_screen_projector"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="#33ff0000"
+        android:text="Screen Projector" />
+
+    <TextView
+        android:id="@+id/tv_screen_projection_player"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="#3300ff00"
+        android:text="Screen Projection Player" />
+
+</LinearLayout>

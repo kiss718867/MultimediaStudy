@@ -30,6 +30,7 @@ public class PlayerSocketLive {
     public void start() {
         try {
             URI url = new URI("ws://192.168.0.176:" + port);
+//            URI url = new URI("ws://echo.websocket.org");
             myWebSocketClient = new MyWebSocketClient(url);
             myWebSocketClient.connect();
         } catch (Exception e) {
@@ -45,11 +46,12 @@ public class PlayerSocketLive {
 
         @Override
         public void onOpen(ServerHandshake serverHandshake) {
-            Log.i(TAG, "打开 socket  onOpen: ");
+            Log.i(TAG, "打开 socket  onOpen");
         }
 
         @Override
         public void onMessage(String s) {
+            Log.i(TAG, "onMessage: " + s);
         }
 
         @Override
@@ -62,7 +64,7 @@ public class PlayerSocketLive {
 
         @Override
         public void onClose(int i, String s, boolean b) {
-            Log.i(TAG, "onClose: ");
+            Log.i(TAG, "onClose");
         }
 
         @Override

@@ -37,6 +37,7 @@ public class ProjectorSocketLive {
         @Override
         public void onOpen(WebSocket webSocket, ClientHandshake clientHandshake) {
             ProjectorSocketLive.this.webSocket = webSocket;
+            Log.i(TAG, "onOpen");
         }
 
         @Override
@@ -56,7 +57,7 @@ public class ProjectorSocketLive {
 
         @Override
         public void onStart() {
-            Log.i(TAG, "onStart: ");
+            Log.i(TAG, "onStart");
         }
     };
 
@@ -68,8 +69,12 @@ public class ProjectorSocketLive {
 
     public void close() {
         try {
-            webSocket.close();
-            webSocketServer.stop();
+            if (webSocket != null) {
+                webSocket.close();
+            }
+            if (webSocketServer != null) {
+                webSocketServer.stop();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

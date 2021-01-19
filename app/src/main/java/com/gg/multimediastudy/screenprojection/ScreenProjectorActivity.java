@@ -6,10 +6,10 @@ import android.media.projection.MediaProjection;
 import android.media.projection.MediaProjectionManager;
 import android.os.Bundle;
 
-import com.gg.multimediastudy.R;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.gg.multimediastudy.R;
 
 /**
  * @description: 投屏推流端
@@ -37,7 +37,7 @@ public class ScreenProjectorActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 100) {
             mediaProjection = mediaProjectionManager.getMediaProjection(resultCode, data);
-            socketLive = new ProjectorSocketLive(12001);
+            socketLive = new ProjectorSocketLive(6777);
             socketLive.start(mediaProjection);
         }
     }

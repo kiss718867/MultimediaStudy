@@ -51,6 +51,8 @@ captures/
 .idea/navEditor.xml
 .idea/.gitignore
 .idea/misc.xml
+.idea/compiler.xml
+.idea/jarRepositories.xml
 .idea/inspectionProfiles/Project_Default.xml
 
 # Keystore files

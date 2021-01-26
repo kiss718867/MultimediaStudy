@@ -11,6 +11,8 @@ import com.gg.multimediastudy.camera1capture.Camera1CaptureActivity;
 import com.gg.multimediastudy.h264encoder.H264EncoderActivity;
 import com.gg.multimediastudy.h264parser.H264ParseActivity;
 import com.gg.multimediastudy.h264player.H264PlayerActivity;
+import com.gg.multimediastudy.h265videocall.VideoCallClientActivity;
+import com.gg.multimediastudy.h265videocall.VideoCallServerActivity;
 import com.gg.multimediastudy.screenprojection.ScreenProjectionPlayerActivity;
 import com.gg.multimediastudy.screenprojection.ScreenProjectorActivity;
 
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tv_camera1_capture;
     private TextView tv_screen_projector;
     private TextView tv_screen_projection_player;
+    private TextView tv_video_call_server;
+    private TextView tv_video_call_client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +39,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tv_camera1_capture = findViewById(R.id.tv_camera1_capture);
         tv_screen_projector = findViewById(R.id.tv_screen_projector);
         tv_screen_projection_player = findViewById(R.id.tv_screen_projection_player);
+        tv_video_call_server = findViewById(R.id.tv_video_call_server);
+        tv_video_call_client = findViewById(R.id.tv_video_call_client);
         tv_h264player.setOnClickListener(this);
         tv_h264encoder.setOnClickListener(this);
         tv_h264parser.setOnClickListener(this);
         tv_camera1_capture.setOnClickListener(this);
         tv_screen_projector.setOnClickListener(this);
         tv_screen_projection_player.setOnClickListener(this);
+        tv_video_call_server.setOnClickListener(this);
+        tv_video_call_client.setOnClickListener(this);
 
         checkPermission();
     }
@@ -60,6 +68,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ScreenProjectorActivity.startActivity(this);
         } else if (id == R.id.tv_screen_projection_player) {
             ScreenProjectionPlayerActivity.startActivity(this);
+        } else if (id == R.id.tv_video_call_server) {
+            VideoCallServerActivity.startActivity(this);
+        } else if (id == R.id.tv_video_call_client) {
+            VideoCallClientActivity.startActivity(this);
         }
     }
 

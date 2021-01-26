@@ -25,11 +25,11 @@ public class H265Codec extends Thread {
     private int width = 1080;
     private int height = 1920;
 
-    private ProjectorSocketLive socketLive;
+    private ScreenProjectorSocketLive socketLive;
     private MediaProjection mediaProjection;
     private MediaCodec mediaCodec;
 
-    public H265Codec(ProjectorSocketLive socketLive, MediaProjection mediaProjection) {
+    public H265Codec(ScreenProjectorSocketLive socketLive, MediaProjection mediaProjection) {
         this.socketLive = socketLive;
         this.mediaProjection = mediaProjection;
     }

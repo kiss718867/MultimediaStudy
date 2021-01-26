@@ -14,7 +14,7 @@ import java.nio.ByteBuffer;
  * @date: 2021/01/18 00:32
  */
 
-public class PlayerSocketLive {
+public class ScreenProjectionPlayerSocketLive {
 
     private static final String TAG = "GG";
 
@@ -22,7 +22,7 @@ public class PlayerSocketLive {
     private int port;
     private MyWebSocketClient myWebSocketClient;
 
-    public PlayerSocketLive(SocketCallback callback, int port) {
+    public ScreenProjectionPlayerSocketLive(SocketCallback callback, int port) {
         this.socketCallback = socketCallback;
         this.port = port;
     }

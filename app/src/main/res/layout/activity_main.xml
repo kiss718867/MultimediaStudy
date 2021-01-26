@@ -54,4 +54,20 @@
         android:background="#3300ff00"
         android:text="Screen Projection Player" />
 
+    <TextView
+        android:id="@+id/tv_video_call_server"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="#33ff0000"
+        android:text="Video Call Server" />
+
+    <TextView
+        android:id="@+id/tv_video_call_client"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="#3300ff00"
+        android:text="Video Call Client" />
+
 </LinearLayout>

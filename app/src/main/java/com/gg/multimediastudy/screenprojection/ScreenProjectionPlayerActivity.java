@@ -25,7 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
  * @date: 2021/01/17 23:25
  */
 
-public class ScreenProjectionPlayerActivity extends AppCompatActivity implements PlayerSocketLive.SocketCallback {
+public class ScreenProjectionPlayerActivity extends AppCompatActivity implements ScreenProjectionPlayerSocketLive.SocketCallback {
 
     private static final String TAG = "GG";
 
@@ -76,7 +76,7 @@ public class ScreenProjectionPlayerActivity extends AppCompatActivity implements
     }
 
     private void initSocket() {
-        PlayerSocketLive screenLive = new PlayerSocketLive(this, 12001);
+        ScreenProjectionPlayerSocketLive screenLive = new ScreenProjectionPlayerSocketLive(this, 12001);
         screenLive.start();
     }
 

@@ -1,6 +1,5 @@
-package com.gg.multimediastudy.screenprojection;
+package com.gg.multimediastudy.h265videocall;
 
-import android.media.projection.MediaProjection;
 import android.util.Log;
 
 import org.java_websocket.WebSocket;
@@ -8,6 +7,7 @@ import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
 
 import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
 
 /**
  * @description:
@@ -15,28 +15,26 @@ import java.net.InetSocketAddress;
  * @date: 2021/01/17 23:54
  */
 
-public class ProjectorSocketLive {
+public class VideoCallServerSocketLive implements SocketLive {
 
     private static final String TAG = "GG";
 
     private WebSocket webSocket;
-    private int port;
-    private H265Codec h265Codec;
+    private SocketLiveCallback socketCallback;
 
-    public ProjectorSocketLive(int port) {
-        this.port = port;
+    public VideoCallServerSocketLive(SocketLiveCallback socketCallback) {
+        this.socketCallback = socketCallback;
     }
 
-    public void start(MediaProjection mediaProjection) {
+    @Override
+    public void start() {
         webSocketServer.start();
-        h265Codec = new H265Codec(this, mediaProjection);
-        h265Codec.statLive();
     }
 
-    private WebSocketServer webSocketServer = new WebSocketServer(new InetSocketAddress(port)) {
+    private WebSocketServer webSocketServer = new WebSocketServer(new InetSocketAddress(40002)) {
         @Override
         public void onOpen(WebSocket webSocket, ClientHandshake clientHandshake) {
-            ProjectorSocketLive.this.webSocket = webSocket;
+            VideoCallServerSocketLive.this.webSocket = webSocket;
             Log.i(TAG, "onOpen");
         }
 
@@ -51,6 +49,14 @@ public class ProjectorSocketLive {
         }
 
         @Override
+        public void onMessage(WebSocket conn, ByteBuffer bytes) {
+            Log.i(TAG, "onMessage: 消息长度 : " + bytes.remaining());
+            byte[] buf = new byte[bytes.remaining()];
+            bytes.get(buf);
+            socketCallback.callBack(buf);
+        }
+
+        @Override
         public void onError(WebSocket webSocket, Exception e) {
             Log.i(TAG, "onError:  " + e.toString());
         }
@@ -61,6 +67,7 @@ public class ProjectorSocketLive {
         }
     };
 
+    @Override
     public void sendData(byte[] bytes) {
         if (webSocket != null && webSocket.isOpen()) {
             webSocket.send(bytes);

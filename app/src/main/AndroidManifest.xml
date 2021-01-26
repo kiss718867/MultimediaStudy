@@ -29,6 +29,8 @@
         <activity android:name=".camera1capture.Camera1CaptureActivity" />
         <activity android:name=".screenprojection.ScreenProjectorActivity" />
         <activity android:name=".screenprojection.ScreenProjectionPlayerActivity" />
+        <activity android:name=".h265videocall.VideoCallServerActivity" />
+        <activity android:name=".h265videocall.VideoCallClientActivity" />
     </application>
 
 </manifest>
